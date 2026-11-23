@@ -1,0 +1,154 @@
+VERSION ""
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_VALTYPE_
+	SIG_VALTYPE_VAL_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: ECU CCU TFT ABS
+
+
+BO_ 636 ECU_Status_27C: 7 ECU
+ SG_ Engine_RPM : 7|16@0+ (0.4,0) [0|16000] "rpm" CCU,TFT
+ SG_ Starter_Switch : 24|1@0+ (1,0) [0|1] "" CCU,TFT
+ SG_ Side_Stand : 29|1@0+ (1,0) [0|1] "" CCU,TFT
+ SG_ In_Gear : 30|1@0+ (1,0) [0|1] "" CCU,TFT
+ SG_ Gear_Clutch_State : 39|8@0+ (1,0) [0|255] "" CCU,TFT
+ SG_ Engine_Running : 55|1@0+ (1,0) [0|1] "" CCU,TFT
+
+BO_ 675 ECU_Throttle_TCS_2A3: 8 ECU
+ SG_ Raw_Data_2A3 : 7|64@0+ (1,0) [0|0] "" CCU,TFT
+
+BO_ 899 Vehicle_Speed_Dynamics_383: 8 ECU
+ SG_ Raw_Data_383 : 7|64@0+ (1,0) [0|0] "" CCU,TFT
+
+BO_ 1298 CCU_Meter_Sync_512: 4 CCU
+ SG_ Sync_Counter : 7|8@0+ (1,0) [0|255] "" TFT
+ SG_ Checksum_512 : 31|8@0+ (1,0) [0|255] "" TFT
+
+BO_ 1418 CCU_Clock_58A: 8 CCU
+ SG_ Clock_Year : 7|16@0+ (1,0) [0|9999] "year" TFT
+ SG_ Clock_Month : 23|8@0+ (1,0) [0|12] "month" TFT
+ SG_ Clock_Day : 31|8@0+ (1,0) [0|31] "day" TFT
+ SG_ Clock_Hour : 39|8@0+ (1,0) [0|23] "h" TFT
+ SG_ Clock_Minute : 47|8@0+ (1,0) [0|59] "min" TFT
+ SG_ Clock_Second : 55|8@0+ (1,0) [0|59] "s" TFT
+
+BO_ 1419 CCU_Info_Sync_58B: 8 CCU
+ SG_ Raw_Data_58B : 7|64@0+ (1,0) [0|0] "" TFT
+
+BO_ 1425 CCU_Phone_Session_591: 8 CCU
+ SG_ Phone_Session_State : 7|8@0+ (1,0) [0|255] "" TFT
+
+BO_ 1426 CCU_Media_Status_592: 8 CCU
+ SG_ Media_Status : 7|32@0+ (1,0) [0|0] "" TFT
+
+BO_ 1428 CCU_Notify_Active_594: 8 CCU
+ SG_ Notify_Mask_Active : 7|32@0+ (1,0) [0|0] "" TFT
+
+BO_ 1429 CCU_Notify_Clear_595: 8 CCU
+ SG_ Notify_Mask_Clear : 7|32@0+ (1,0) [0|0] "" TFT
+
+BO_ 1434 CCU_Navi_Text_Header_59A: 8 CCU
+ SG_ Text_Control_Header : 7|64@0+ (1,0) [0|0] "" TFT
+
+BO_ 1435 CCU_Navi_Text_Part1_59B: 8 CCU
+ SG_ Text_UTF8_Part1 : 31|40@0+ (1,0) [0|0] "" TFT
+
+BO_ 1436 CCU_Navi_Text_Part2_59C: 8 CCU
+ SG_ Text_UTF8_Part2 : 15|56@0+ (1,0) [0|0] "" TFT
+
+BO_ 1437 CCU_UI_Sync_59D: 8 CCU
+ SG_ UI_Display_Mode_Mask : 15|8@0+ (1,0) [0|255] "" TFT
+
+BO_ 1438 CCU_UI_Heartbeat_59E: 8 CCU
+ SG_ Raw_Data_59E : 7|64@0+ (1,0) [0|0] "" TFT
+
+BO_ 1872 ECU_Fuel_Air_Rate_750: 8 ECU
+ SG_ Fuel_Air_Flow_Rate : 15|16@0+ (1,0) [0|65535] "" CCU,TFT
+ SG_ Alive_Counter_750 : 44|5@0+ (1,0) [0|31] "" CCU,TFT
+
+BO_ 1873 ECU_Warmup_Timer_751: 8 ECU
+ SG_ Warmup_Countdown : 55|8@0+ (1,0) [0|255] "" CCU,TFT
+
+BO_ 1877 ECU_Warmup_Fuel_Trim_755: 8 ECU
+ SG_ Warmup_Fuel_Corr_1 : 15|8@0+ (1,0) [0|255] "" CCU,TFT
+ SG_ Warmup_Fuel_Corr_2 : 31|8@0+ (1,0) [0|255] "" CCU,TFT
+
+BO_ 1878 ECU_Injection_Rate_756: 8 ECU
+ SG_ Injection_Rate_A : 31|8@0+ (1,0) [0|255] "" CCU,TFT
+ SG_ Injection_Rate_B : 47|8@0+ (1,0) [0|255] "" CCU,TFT
+
+BO_ 1879 ECU_Lighting_757: 8 ECU
+ SG_ Transition_Trigger : 32|1@0+ (1,0) [0|1] "" CCU,TFT
+ SG_ High_Beam : 49|2@0+ (1,0) [0|3] "" CCU,TFT
+
+BO_ 1889 ABS_Wheel_Speed_Front_761: 8 ABS
+ SG_ Front_Wheel_Speed_Raw : 7|16@0+ (1,0) [0|65535] "" ECU,CCU,TFT
+
+BO_ 1890 ABS_Wheel_Speed_Rear_762: 8 ABS
+ SG_ Rear_Wheel_Speed_Raw : 7|16@0+ (1,0) [0|65535] "" ECU,CCU,TFT
+
+BO_ 1892 Power_Alternator_764: 8 ECU
+ SG_ Charging_Voltage_State : 7|24@0+ (1,0) [0|16777215] "" CCU,TFT
+
+BO_ 1898 CCU_Uptime_Timer_76A: 8 CCU
+ SG_ Uptime_Seconds_Counter : 47|8@0+ (1,0) [0|255] "s" TFT
+
+BO_ 1900 CCU_BT_Session_76C: 8 CCU
+ SG_ BT_Session_Status : 23|8@0+ (1,0) [0|255] "" TFT
+
+BO_ 1901 Switch_Event_76D: 8 TFT
+ SG_ Left_Switch_Trigger : 6|1@0+ (1,0) [0|1] "" CCU
+
+BO_ 2016 UDS_Request_7E0: 8 CCU
+ SG_ UDS_Req_Data : 7|64@0+ (1,0) [0|0] "" ECU
+
+BO_ 2024 UDS_Response_7E8: 8 ECU
+ SG_ ISO_TP_PCI : 7|8@0+ (1,0) [0|255] "" CCU
+ SG_ UDS_Resp_Payload : 15|56@0+ (1,0) [0|0] "" CCU
+
+
+CM_ BO_ 636 "ECU Main Status: RPM, Side Stand, Gear, Starter, Engine Running";
+CM_ BO_ 1418 "Y-Connect Synchronized Real-Time Clock";
+CM_ BO_ 1434 "UTF-8 Multi-Frame Text Header for Navi/Notification";
+CM_ BO_ 1435 "UTF-8 Multi-Frame Text Part 1";
+CM_ BO_ 1436 "UTF-8 Multi-Frame Text Part 2";
+CM_ BO_ 1879 "Headlight High Beam Status";
+CM_ BO_ 2024 "UDS Multi-Frame Response (Service 0x21 PID 0x01 contains Fuel Counter in Frame 0x22 Byte4 and Injector Pulse in Frame 0x24 Byte2-3)";
+
+VAL_ 636 Starter_Switch 0 "OFF" 1 "Cranking" ;
+VAL_ 636 Side_Stand 0 "DOWN_Extended" 1 "UP_Retracted" ;
+VAL_ 636 In_Gear 0 "Neutral" 1 "In_Gear" ;
+VAL_ 636 Gear_Clutch_State 0 "Neutral" 1 "Clutch_Pulled" 2 "1st_Gear" ;
+VAL_ 636 Engine_Running 0 "Stopped" 1 "Running" ;
+VAL_ 1425 Phone_Session_State 0 "Idle" 17 "Active_Session" ;
+VAL_ 1879 High_Beam 0 "OFF" 3 "ON" ;
+VAL_ 1901 Left_Switch_Trigger 0 "Idle" 1 "Pressed" ;
