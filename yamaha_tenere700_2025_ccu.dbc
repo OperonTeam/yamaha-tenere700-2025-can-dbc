@@ -1,4 +1,4 @@
-VERSION "hypothesis-2026-11-23"
+VERSION "hypothesis-2026-11-23c"
 
 
 NS_ :
@@ -148,30 +148,31 @@ BO_ 2024 Hyp_UDS_Resp_7E8: 8 ECU
  SG_ Hyp_UDS_Resp_Payload : 15|56@0+ (1,0) [0|0] "" Observer
 
 
-CM_ "ENTIRE FILE IS A HYPOTHESIS CATALOG. Not OEM ground truth. Passive signals from short listen-only captures. Road validation pending.";
-CM_ BO_ 636 "HYP/OBS: RPM scale ~0.4 (~R9 100/256). Gear nibble 0=N..6, 7=between is stronger hyp (R9). Other bits weaker.";
-CM_ BO_ 675 "PLACEHOLDER: nearly fixed when stopped. Meaning unknown until riding.";
-CM_ BO_ 899 "HYP/CONFLICT: speed vs brake-bit (R9). Mostly fixed when stopped.";
-CM_ BO_ 1298 "CONFLICT: B0/B1 often match coolant/IAT (raw*0.625-30). Old sync-counter story demoted.";
-CM_ SG_ 1298 Hyp_B0_TempOrCounter "Prefer temperature hyp until proven otherwise; factor 0.625 offset -30 is R9-compatible.";
-CM_ SG_ 1298 Hyp_B1_IATOrField "Same scale as B0 under temperature hyp.";
-CM_ BO_ 1418 "HYP: Y-Connect clock sync. All-zero may mean unsynced.";
-CM_ BO_ 1425 "HYP: phone/Y-Connect session.";
-CM_ BO_ 1434 "HYP: navi/notification UTF-8 multi-frame.";
-CM_ BO_ 1872 "HYP/CONFLICT: fuel-flow claim is weak; R9 points at RPM hundreds / throttle coarse.";
-CM_ BO_ 1873 "HYP/CONFLICT: warmup-timer claim is weak; R9 points at neutral/clutch/stand in B6.";
-CM_ BO_ 1878 "HYP/CONFLICT: injection-rate claim is weak; R9 rear wheel speed when moving.";
-CM_ BO_ 1879 "HYP: lighting / high-beam candidate only.";
-CM_ BO_ 1880 "HYP/CONFLICT: env-sensor claim demoted; APS/TPS (throttle) hyp is stronger from blip logs / R9.";
-CM_ BO_ 1881 "HYP: commanded throttle candidate (R9).";
-CM_ BO_ 1889 "PLACEHOLDER: needs road test.";
-CM_ BO_ 1890 "PLACEHOLDER: needs road test.";
-CM_ BO_ 2016 "OBS: UDS requests from CCU (multiple services; not a fixed 0.5s-only poll).";
-CM_ BO_ 2024 "OBS: UDS responses. Fuel-counter / injector-PW byte mapping remains HYP.";
+CM_ "HYPOTHESIS CATALOG (2026-11-23). Not OEM ground truth. Passive CCU tap on Tenere 700. Gear MATCH; 756 injection ROLE match (formula HYP); 764=voltage NOT fuel; odo/level NEG on this tap.";
+CM_ BO_ 636 "MATCH gear B4: 0=N,1-6,7=between (parked clutch). RPM field MATCH; scale *0.4 HYP (road meter check). Stand/running bits MATCH.";
+CM_ BO_ 675 "PLACEHOLDER: nearly fixed when stopped.";
+CM_ BO_ 899 "PLACEHOLDER: mostly fixed when stopped. Do not use as vehicle speed.";
+CM_ BO_ 1298 "HYP: sparse on this log; role unclear.";
+CM_ SG_ 1298 Hyp_B0_TempOrCounter "HYP field; scale unconfirmed.";
+CM_ SG_ 1298 Hyp_B1_IATOrField "HYP field; scale unconfirmed.";
+CM_ BO_ 1418 "MATCH-ish: Y-Connect clock. All-zero may mean unsynced.";
+CM_ BO_ 1425 "MATCH-ish: phone/Y-Connect session.";
+CM_ BO_ 1434 "MATCH-ish: navi/notification UTF-8 multi-frame.";
+CM_ BO_ 1872 "HYP: load/flow assist; no L scale.";
+CM_ BO_ 1873 "HYP: B6 status/warmup-like steps.";
+CM_ BO_ 1878 "MATCH role=injection (zero stopped, rises on start, live while running). Formula/units HYP (road).";
+CM_ BO_ 1879 "HYP: lighting; high-beam NOT confirmed (HW). Indicators not seen on CCU tap (NEG).";
+CM_ BO_ 1880 "HYP: APS broadcast not found on this CCU tap (NEG).";
+CM_ BO_ 1881 "HYP: throttle-related candidate.";
+CM_ BO_ 1889 "PLACEHOLDER: needs road test (front/rear wheel separate).";
+CM_ BO_ 1890 "PLACEHOLDER: needs road test (front/rear wheel separate).";
+CM_ BO_ 1892 "MATCH: battery/charging voltage. NOT fuel level (NEG).";
+CM_ BO_ 2016 "OBS: UDS requests from CCU.";
+CM_ BO_ 2024 "OBS: UDS. CF22 idx3 fuel-count HYP (~0.50/s idle; ml/count LONG). Odo not found (NEG).";
 
-VAL_ 636 Hyp_Gear_Nibble 0 "N_or_unknown" 1 "Gear1_hyp" 2 "Gear2_hyp" 3 "Gear3_hyp" 4 "Gear4_hyp" 5 "Gear5_hyp" 6 "Gear6_hyp" 7 "Between_hyp" ;
+VAL_ 636 Hyp_Gear_Nibble 0 "N" 1 "Gear1" 2 "Gear2" 3 "Gear3" 4 "Gear4" 5 "Gear5" 6 "Gear6" 7 "Between" ;
 VAL_ 636 Hyp_Starter_Bit 0 "OFF_hyp" 1 "Cranking_hyp" ;
-VAL_ 636 Hyp_SideStand_Bit 0 "DOWN_hyp" 1 "UP_hyp" ;
+VAL_ 636 Hyp_SideStand_Bit 0 "DOWN" 1 "UP" ;
 VAL_ 636 Hyp_InGear_Bit 0 "Neutral_hyp" 1 "InGear_hyp" ;
-VAL_ 636 Hyp_Engine_Running_Bit 0 "Stopped_hyp" 1 "Running_hyp" ;
-VAL_ 1879 Hyp_B6_Field 0 "OFF_hyp" 3 "ON_hyp" ;
+VAL_ 636 Hyp_Engine_Running_Bit 0 "Stopped" 1 "Running" ;
+VAL_ 1879 Hyp_B6_Field 0 "OFF_or_unknown" 3 "ON_unconfirmed" ;
